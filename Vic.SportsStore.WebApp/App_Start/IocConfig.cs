@@ -23,20 +23,20 @@ namespace Vic.SportsStore.WebApp
                 .PropertiesAutowired();//auto register all the controller in this assembly
 
 
-            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
-            mock
-                .Setup(m => m.Products)
-                .Returns(new List<Product>
-                {
-                    new Product { Name = "Football", Price = 25 },
-                    new Product { Name = "Surf board", Price = 179 },
-                    new Product { Name = "Running shoes", Price = 95 }
-                });
+            //Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            //mock
+            //    .Setup(m => m.Products)
+            //    .Returns(new List<Product>
+            //    {
+            //        new Product { Name = "Football", Price = 25 },
+            //        new Product { Name = "Surf board", Price = 179 },
+            //        new Product { Name = "Running shoes", Price = 95 }
+            //    });
 
-            IProductsRepository products = new InMemoryProductsRepository();
+            //IProductsRepository products = new InMemoryProductsRepository();
 
             //builder.RegisterInstance<IProductsRepository>(mock.Object);
-            builder.RegisterInstance<IProductsRepository>(products);
+            builder.RegisterInstance<IProductsRepository>(new InMemoryProductsRepository);
 
 
             var container = builder.Build();
