@@ -13,10 +13,16 @@ namespace Vic.SportsStore.WebApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
+            routes.MapRoute(//config rout
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{id}",//url templat
+                defaults: 
+                new
+                {
+                    controller = "Product",
+                    action = "List",
+                    id = UrlParameter.Optional
+                }
             );
         }
     }
