@@ -19,8 +19,8 @@ namespace Vic.SportsStore.WebApp
             var builder = new ContainerBuilder();
 
             builder
-                .RegisterControllers(typeof(MvcApplication).Assembly)
-                .PropertiesAutowired();//auto register all the controller in this assembly
+                .RegisterControllers(typeof(MvcApplication).Assembly)//auto register all the controller in this assembly
+                .PropertiesAutowired();
 
 
             //Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
@@ -36,7 +36,8 @@ namespace Vic.SportsStore.WebApp
             //IProductsRepository products = new InMemoryProductsRepository();
 
             //builder.RegisterInstance<IProductsRepository>(mock.Object);
-            builder.RegisterInstance<IProductsRepository>(new InMemoryProductsRepository());
+            builder.RegisterInstance<IProductsRepository>(new InMemoryProductsRepository())
+                   .PropertiesAutowired();//auto register all the Properties in this assembly
 
 
             var container = builder.Build();

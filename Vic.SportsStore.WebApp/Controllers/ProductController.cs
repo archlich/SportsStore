@@ -11,11 +11,8 @@ namespace Vic.SportsStore.WebApp.Controllers
     {
         // GET: Product
 
-        private IProductsRepository repository;//constructor auto zhuru
-        public ProductController(IProductsRepository productsRepository)//constructor auto zhuru
-        {
-            this.repository = productsRepository;
-        }
+        public IProductsRepository ProductsRepository { get; set; }
+
         public ActionResult Index()
         {
             return View();
@@ -23,7 +20,7 @@ namespace Vic.SportsStore.WebApp.Controllers
 
         public ViewResult List()
         {
-            return View(repository.Products);
+            return View(ProductsRepository.Products);
         }
     }
 }
