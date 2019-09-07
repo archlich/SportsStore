@@ -36,7 +36,7 @@ namespace Vic.SportsStore.WebApp
             //IProductsRepository products = new InMemoryProductsRepository();
 
             //builder.RegisterInstance<IProductsRepository>(mock.Object);
-            builder.RegisterInstance<IProductsRepository>(new InMemoryProductsRepository);
+            builder.RegisterInstance<IProductsRepository>(new InMemoryProductsRepository());
 
 
             var container = builder.Build();
