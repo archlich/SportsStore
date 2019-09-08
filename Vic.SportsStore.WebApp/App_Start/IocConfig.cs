@@ -36,8 +36,14 @@ namespace Vic.SportsStore.WebApp
             //IProductsRepository products = new InMemoryProductsRepository();
 
             //builder.RegisterInstance<IProductsRepository>(mock.Object);
-            builder.RegisterInstance<IProductsRepository>(new InMemoryProductsRepository())
-                   .PropertiesAutowired();//auto register all the Properties in this assembly
+            //builder.RegisterInstance<IProductsRepository>(new InMemoryProductsRepository())
+            //       .PropertiesAutowired();//auto register all the Properties in this assembly
+
+            builder.RegisterInstance<IProductsRepository>(new EFProductRepository())
+                 .PropertiesAutowired();//auto register all the Properties in this assembly using EFProductRepository
+
+            builder.RegisterInstance<EFDbContext>(new EFDbContext())
+               .PropertiesAutowired();//auto register all the Properties in this assembly using EFProductRepository
 
 
             var container = builder.Build();
