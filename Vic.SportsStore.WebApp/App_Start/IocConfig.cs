@@ -45,6 +45,10 @@ namespace Vic.SportsStore.WebApp
             builder.RegisterInstance<EFDbContext>(new EFDbContext())
                .PropertiesAutowired();//auto register all the Properties in this assembly using EFProductRepository
 
+            builder
+                .RegisterInstance<IOrderProcessor>(new EmailOrderProcessor(new EmailSettings()))
+              .PropertiesAutowired();//auto register all the Properties in this assembly using EFProductRepository
+
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
