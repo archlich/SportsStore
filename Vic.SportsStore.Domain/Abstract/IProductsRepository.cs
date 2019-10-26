@@ -7,8 +7,10 @@ using Vic.SportsStore.Domain.Entities;
 
 namespace Vic.SportsStore.Domain.Abstract
 {
+
     public interface IProductsRepository
     {
         IEnumerable<Product> Products { get; }
+        void SaveProduct(Product product);
     }
 }
